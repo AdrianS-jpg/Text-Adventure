@@ -4,29 +4,29 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + ("textToEnter".Length / 2)) + "}", "textToEnter"));
             float x = 3;
             float y = 4;
-            Console.WriteLine("|                                                                                                                                                                                                            |");
-            Console.WriteLine("|                                                                                 This game is meant to be played in full screen.                                                                            |");
-            Console.WriteLine("|                                                                                                                                                                                                            |");
+            wholeSpace();
+            Thread.Sleep(3000);
+            wholeSpace();
+            Thread.Sleep(3000);
+            centerPrint("This game is meant to be played in full screen.");
             Thread.Sleep(2000);
-            Console.WriteLine("|                                                                                                   Start?                                                                                                   |");
-            Console.WriteLine("|                                                                                                                                                                                                            |");
+            centerPrint("Start?");
+            wholeSpace();
             string beginningInput = Console.ReadLine();
             while (beginningInput.ToUpper() != "START")
             {
-                Console.WriteLine("|                                                                                                Please Start                                                                                                |");
+                centerPrint("Please start.");
                 beginningInput = Console.ReadLine();
             }
-            Console.WriteLine("|                                                                                                                                                                                                            |");
-            Console.WriteLine("|                                                                                              The year is 2013.                                                                                             |");
+            centerPrint("The year is 2013.");
             Thread.Sleep(1500);
-            Console.WriteLine("|                                                                          You are only a handful of years of age at this point in time.                                                                     |");
+            centerPrint("You are only a handful of years of age at this point in time.");
             Thread.Sleep(1500);
-            Console.WriteLine("|                                                                                     The setting? The kingdom of the Wal.                                                                                   |");
+            centerPrint("The setting? The kingdom of the Wal.");
             Thread.Sleep(1500);
-            Console.WriteLine("|                                                                  As you are still yet a young babe, you are not aware of your incoming fate.                                                               |");
+            centerPrint("As you are still yet a young babe, you are not aware of your incoming fate.");
             Thread.Sleep(1500);
             Console.WriteLine("|                                                                            You reach for a packet of Hydrox, your favorite treat.                                                                          |");
             Thread.Sleep(1500);
@@ -39,8 +39,39 @@
             int sanity = 3;
             startLane();
             moving(Console.ReadLine(), x, y);
-            
 
+
+        }
+
+        static void centerPrint(string e)
+        {
+            string s = e;
+            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.WriteLine("|");
+            Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop - 1);
+            Console.WriteLine(s);
+            Console.SetCursorPosition(Console.WindowWidth - 1, Console.CursorTop - 1);
+            Console.WriteLine("|");
+        }
+
+        static void wholeSpace()
+        {
+            for (int i = 0; i < Console.WindowWidth; i++)
+            {
+                if (i == Console.WindowWidth - 1) 
+                { 
+                    Console.SetCursorPosition(i, Console.CursorTop - 1);
+                    Console.WriteLine("|");
+                } else if (i == 0)
+                {
+                    Console.SetCursorPosition(i, Console.CursorTop);
+                    Console.WriteLine("|");
+                } else
+                {
+                    Console.SetCursorPosition(i, Console.CursorTop - 1);
+                    Console.WriteLine("/");
+                }
+            }
         }
 
         static void choiceMenu()
@@ -138,11 +169,11 @@
         {
             Console.WriteLine("|////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////|");
             Console.WriteLine("|////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////|");
-            Console.WriteLine("|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|");
-            Console.WriteLine("|                         |                                                                                                                                                                                 |");
-            Console.WriteLine("|                         |                                                                                                                                                                                  |");
-            Console.WriteLine("|                         |         [ Rx ]                                                           { P }                                                 [ R ]                                             |");
-            Console.WriteLine("|                         |                                                                                                                                                                                  |");
+            Console.WriteLine("|/////////////////////////|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|");
+            Console.WriteLine("|/////////////////////////|                                                                                                                                                                                  |");
+            Console.WriteLine("|/////////////////////////|                                                                                                                                                                                  |");
+            Console.WriteLine("|/////////////////////////|         [ Rx ]                                                           { P }                                                 [ R ]                                             |");
+            Console.WriteLine("|/////////////////////////|                                                                                                                                                                                  |");
             Console.WriteLine("|/////////////////////////|_______________________________________________________________                          _________________________________________________________________________________________|");
             Console.WriteLine("|/////////////////////////|///////////////////////////////////////////////////////////////|                        |/////////////////////////////////////////////////////////////////////////////////////////|");
             Console.WriteLine("|/////////////////////////|///////////////////////////////////////////////////////////////|                        |/////////////////////////////////////////////////////////////////////////////////////////|");
