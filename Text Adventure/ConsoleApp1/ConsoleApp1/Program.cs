@@ -7,8 +7,7 @@ namespace Text_adventure
     { 
         static void Main(string[] args)
         {
-            float x = 3;
-            float y = 4;
+            
             wholeSpace();
             centerPrint("This game is meant to be played in full screen.");
             wholeSpace();
@@ -39,7 +38,7 @@ namespace Text_adventure
             Thread.Sleep(1500);
             int sanity = 3;
             startLane();
-            moving(Console.ReadLine(), x, y);
+            moving(Console.ReadLine());
 
 
         }
@@ -47,6 +46,9 @@ namespace Text_adventure
         public static class Globals
         {
             public static bool robCheck = false;
+            public static bool oldCheck = false;
+            public static float x = 3;
+            public static float y = 4;
         }
 
         static void centerPrint(string e)
@@ -146,6 +148,28 @@ namespace Text_adventure
             centerPrint("-----------------------------------                          -----------------------------------");
             wholeSpace();
 
+        }
+
+        static void middleLaneInt()
+        {
+            wholeSpace();
+            centerPrint("___________________________________                          ___________________________________");
+            centerPrint("///////////////////////////////////|                        |///////////////////////////////////");
+            centerPrint("///////////////////////////////////|         [ U ]          |///////////////////////////////////");
+            centerPrint("///////////////////////////////////| [ I ]                  |///////////////////////////////////");
+            centerPrint("///////////////////////////////////|                        |///////////////////////////////////");
+            centerPrint("-----------------------------------                          -----------------------------------");
+            wholeSpace();
+            centerPrint("                                             { P }                                              ");
+            centerPrint("            [ L ]                                                             [ R ]             ");
+            wholeSpace();
+            centerPrint("-----------------------------------                          -----------------------------------");
+            centerPrint("///////////////////////////////////|                        |///////////////////////////////////");
+            centerPrint("///////////////////////////////////|                        |///////////////////////////////////");
+            centerPrint("///////////////////////////////////|         [ D ]          |///////////////////////////////////");
+            centerPrint("///////////////////////////////////|                        |///////////////////////////////////");
+            centerPrint("-----------------------------------                          -----------------------------------");
+            wholeSpace();
         }
 
         static void topLane()
@@ -254,6 +278,27 @@ namespace Text_adventure
             centerPrint("///////////////|                                             -----------------------------------");
             wholeSpace();
         }
+        static void leftLaneInt()
+        {
+            wholeSpace();
+            centerPrint("///////////////|                                             -----------------------------------");
+            centerPrint("///////////////|                                            |///////////////////////////////////");
+            centerPrint("///////////////|                             [ U ]          |///////////////////////////////////");
+            centerPrint("///////////////|                                            |///////////////////////////////////");
+            centerPrint("///////////////|                                            |///////////////////////////////////");
+            centerPrint("///////////////|                                             -----------------------------------");
+            centerPrint("///////////////|                                                                                ");
+            centerPrint("///////////////|                             { P }                                              ");
+            centerPrint("///////////////| [ I ]                                                        [ R ]             ");
+            centerPrint("///////////////|                                                                                ");
+            centerPrint("///////////////|                                             -----------------------------------");
+            centerPrint("///////////////|                                            |///////////////////////////////////");
+            centerPrint("///////////////|                                            |///////////////////////////////////");
+            centerPrint("///////////////|                             [ D ]          |///////////////////////////////////");
+            centerPrint("///////////////|                                            |///////////////////////////////////");
+            centerPrint("///////////////|                                             -----------------------------------");
+            wholeSpace();
+        }
 
         static void bottomLane()
         {
@@ -283,10 +328,10 @@ namespace Text_adventure
             centerPrint("                 |////////////////////////////////////////////////////////////|                 ");
             centerPrint("                 |////////////////////////////////////////////////////////////|                 ");
             centerPrint("                  ------------------------------------------------------------                  ");
-            wholeSpace();
             centerPrint("                                             { P }                                              ");
-            centerPrint("            [ L ]                                                             [ R ]             ");
             wholeSpace();
+            centerPrint("            [ L ]                                                             [ R ]             ");
+            centerPrint("                                             [ I ]                                              ");
             centerPrint("------------------------------------------------------------------------------------------------");
             centerPrint("////////////////////////////////////////////////////////////////////////////////////////////////");
             centerPrint("////////////////////////////////////////////////////////////////////////////////////////////////");
@@ -337,97 +382,244 @@ namespace Text_adventure
 
         static void cashierStandEvil()
         {
-                wholeSpace();
-                wholeSpace();
-                wholeSpace();
-                centerPrint("                           __________________________________________                           ");
-                centerPrint("                          |******************************************|                          ");
-                centerPrint("                          |()()()()()()()()()()()()()()()()()()()()()|                          ");
-                centerPrint("                          ||||||||||||||||||||||||||||||||||||||||||||                          ");
-                centerPrint("                           ------------------------------------------                           ");
-                centerPrint("                                                                                                ");
-                centerPrint("                                                                                                ");
-                centerPrint("                             { P }                                                              ");
-                centerPrint("                                             [ I ]                                              ");
-                centerPrint("                           __________________________________________                           ");
-                centerPrint("                          |******************************************|                          ");
-                centerPrint("                          |*********************************[ C ]****|                          ");
-                centerPrint("                          |******************************************|                          ");
-                centerPrint("                           ------------------------------------------                           ");
-                wholeSpace();
-        }
-        static void motherFound()
-        {
-            wholeSpace();
             wholeSpace();
             wholeSpace();
             centerPrint("                           __________________________________________                           ");
-            centerPrint("                          |******************************************|                          ");
+            centerPrint("                          |V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^|                          ");
             centerPrint("                          |()()()()()()()()()()()()()()()()()()()()()|                          ");
             centerPrint("                          ||||||||||||||||||||||||||||||||||||||||||||                          ");
             centerPrint("                           ------------------------------------------                           ");
             centerPrint("                                                                                                ");
-            centerPrint("                                                                                                ");
+            centerPrint("        [ L ]                                                                                   ");
             centerPrint("                             { P }                                                              ");
-            centerPrint("                                                [ I ]                                           ");
+            centerPrint("                                             [ I ]                                              ");
             centerPrint("                           __________________________________________                           ");
             centerPrint("                          |******************************************|                          ");
             centerPrint("                          |*********************************[ C ]****|                          ");
             centerPrint("                          |******************************************|                          ");
             centerPrint("                           ------------------------------------------                           ");
             wholeSpace();
+            wholeSpace();
+        }
+        static void motherFound()
+        {
+            wholeSpace();
+            wholeSpace();
+            centerPrint("                           __________________________________________                           ");
+            centerPrint("                          |V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^|                          ");
+            centerPrint("                          |()()()()()()()()()()()()()()()()()()()()()|                          ");
+            centerPrint("                          ||||||||||||||||||||||||||||||||||||||||||||                          ");
+            centerPrint("                           ------------------------------------------                           ");
+            centerPrint("                                                                                                ");
+            centerPrint("            [ L ]                                                                               ");
+            centerPrint("                             { P }                                                              ");
+            centerPrint("                                                [ I ]                                           ");
+            centerPrint("                           __________________________________________                           ");
+            centerPrint("                          |******************************************|                          ");
+            centerPrint("                          |*********************************[ C ]****|                          ");
+            centerPrint("                          |******************************************|                          ");
+            centerPrint("___________________________------------------------------------------___________________________");
+            centerPrint("////////////////////////////////////////////////////////////////////////////////////////////////");
+            wholeSpace();
+        }
+        static void bottomExit()
+        {
+            wholeSpace();
+            centerPrint("___________________________________                                                             ");
+            centerPrint("///////////////////////////////////|                                                            ");
+            centerPrint("///////////////////////////////////|         [ U ]                                              ");
+            centerPrint("///////////////////////////////////|                                                            ");
+            centerPrint("///////////////////////////////////|                                                            ");
+            centerPrint("-----------------------------------                                                  [ R ]      ");
+            centerPrint("                                                                                                ");
+            centerPrint("                                                                                    1           ");
+            centerPrint("           [ L ]                                                             ___________________");
+            centerPrint("                                             { P }                          |*******************");
+            centerPrint("                                                                            |*******************");
+            centerPrint("                                                                            |*******************");
+            centerPrint("------------------------------------------------------------------------------------------------");
+            centerPrint("////////////////////////////////////////////////////////////////////////////////////////////////");
+            centerPrint("////////////////////////////////////////////////////////////////////////////////////////////////");
+            wholeSpace();
+        }
+        static void exitLane()
+        {
+            wholeSpace();
+            centerPrint("___________________________________                                                             ");
+            centerPrint("///////////////////////////////////|                                                            ");
+            centerPrint("///////////////////////////////////|         [ U ]                                  " + Globals.y +"           ");
+            centerPrint("///////////////////////////////////|                                         ___________________");
+            centerPrint("///////////////////////////////////|                                        |V^V^V^V^V^V^V^V^V^V");
+            centerPrint("-----------------------------------                                         |()()()()()()()()()(");
+            centerPrint("                                                                            ||||||||||||||||||||");
+            centerPrint("                                             { P }                           -------------------");
+            centerPrint("            [ L ]                                                                               ");
+            centerPrint("                                                                                     [ R ]      ");
+            centerPrint("-----------------------------------                                                             ");
+            centerPrint("///////////////////////////////////|                                                            ");
+            centerPrint("///////////////////////////////////|                                         -------------------");
+            centerPrint("///////////////////////////////////|         [ D ]                          |*******************");
+            centerPrint("///////////////////////////////////|                                        |*******************");
+            centerPrint("-----------------------------------                                         |*******************");
+            wholeSpace();
+
+        }
+        static void exit()
+        {
+            wholeSpace();
+            centerPrint("//////////////////////////////////// ______ //|           |/////////////////////////////////////");
+            centerPrint("////////////////////////////////////| EXIT |//|   [ U ]   |/////////////////////////////////////");
+            centerPrint("//////////////////////////////////// ------ //|           |/////////////////////////////////////");
+            centerPrint("///////////////////////////////////|----------             -------------------------------------");
+            centerPrint("///////////////////////////////////|                                    6   |V^V^V^V^V^V^V^V^V^V");
+            centerPrint("-----------------------------------                                         |()()()()()()()()()(");
+            centerPrint("                                                                            ||||||||||||||||||||");
+            centerPrint("                                             { P }                           -------------------");
+            centerPrint("            [ L ]                                                                               ");
+            centerPrint("                                                                                   [ R ]        ");
+            centerPrint("-----------------------------------                                                             ");
+            centerPrint("///////////////////////////////////|                                                            ");
+            centerPrint("///////////////////////////////////|                                         -------------------");
+            centerPrint("///////////////////////////////////|         [ D ]                          |*******************");
+            centerPrint("///////////////////////////////////|                                        |*******************");
+            centerPrint("-----------------------------------                                         |*******************");
+            wholeSpace();
+
+        }
+        static void topCashie()
+        {
+            wholeSpace();
+            centerPrint("////////////////////////////////////////////////////////////////////////////////////////////////");
+            centerPrint("////////////////////////////////////////////////////////////////////////////////////////////////");
+            centerPrint("------------------------------------------------------------------------------------------------");
+            centerPrint("                          |V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^|                          ");
+            centerPrint("                          |()()()()()()()()()()()()()()()()()()()()()|                          ");
+            centerPrint("                          ||||||||||||||||||||||||||||||||||||||||||||                          ");
+            centerPrint("                           ------------------------------------------                           ");
+            centerPrint("                                                                                                ");
+            centerPrint("         [ L ]                                                                                  ");
+            centerPrint("                             { P }                                                              ");
+            centerPrint("                                              [ I ]                                             ");
+            centerPrint("                           __________________________________________                           ");
+            centerPrint("                          |******************************************|                          ");
+            centerPrint("                          |*********************************[ C ]****|                          ");
+            centerPrint("                          |******************************************|                          ");
+            centerPrint("                           ------------------------------------------                           ");
+            wholeSpace();
+
         }
 
-        static void checkPlace(string special, float x, float y)
+        static void exiter()
+        {
+            wholeSpace();
+            centerPrint("//////////////////////////////////////////////_____________/////////////////////////////////////");
+            centerPrint("//////////////////////////////////////////////|   [ U ]   |/////////////////////////////////////");
+            centerPrint("//////////////////////////////////////////////|           |/////////////////////////////////////");
+            centerPrint("//////////////////////////////////////////////|           |/////////////////////////////////////");
+            centerPrint("//////////////////////////////////////////////|           |/////////////////////////////////////");
+            centerPrint("//////////////////////////////////////////////|           |/////////////////////////////////////");
+            centerPrint("//////////////////////////////////////////////|           |/////////////////////////////////////");
+            centerPrint("//////////////////////////////////////////////|           |/////////////////////////////////////");
+            centerPrint("//////////////////////////////////////////////|   { P }   |/////////////////////////////////////");
+            centerPrint("//////////////////////////////////////////////|           |/////////////////////////////////////");
+            centerPrint("//////////////////////////////////////////////|           |/////////////////////////////////////");
+            centerPrint("//////////////////////////////////////////////|           |/////////////////////////////////////");
+            centerPrint("//////////////////////////////////////////////|           |/////////////////////////////////////");
+            centerPrint("//////////////////////////////////////////////|           |/////////////////////////////////////");
+            centerPrint("//////////////////////////////////////////////|           |/////////////////////////////////////");
+            centerPrint("//////////////////////////////////////////////|           |/////////////////////////////////////");
+            wholeSpace();
+        }
+
+        static void checkPlace(string special)
         {
             Console.Clear();
-            if (y == 6 && x == 1 && special == "nurse")
+            if (Globals.y == 6 && Globals.x == 1 && special == "nurse")
             {
                 nurse();
                 Thread.Sleep(1500);
                 topLeftLane();
             }
-            else if (x == 2 && y == 5 && special == "stranger")
+            else if (Globals.x == 2 && Globals.y == 5 && special == "stranger")
             {
                 robber();
                 Thread.Sleep(1500);
                 shopLanes();
             }
-            else if (y == 6 && x == 1)
+            else if (Globals.x == 5 && Globals.y == 7 && special == "oreoscrime")
+            {
+                centerPrint("something has opened");
+                Thread.Sleep(1500);
+
+            }
+            else if (Globals.y == 8)
+            {
+                leftForHome();
+                return;
+            }
+            else if (Globals.x == 5 && Globals.y == 6)
+            {
+                exit();
+            }
+            else if (Globals.x == 5 && Globals.y == 7)
+            {
+                exiter();
+            }
+            else if (Globals.x == 6 && Globals.y == 6)
+            {
+                topCashie();
+            }
+            else if (Globals.y == 6 && Globals.x == 1)
             {
                 topLeftLane();
             }
-            else if (y == 6 && (x == 2 || x == 4))
+            else if (Globals.y == 6 && (Globals.x == 2 || Globals.x == 4))
             {
                 topShopLane();
             }
-            else if (y == 6)
+            else if (Globals.y == 6)
             {
                 topLane();
             }
-            else if (x == 1 && y == 1)
+            else if (Globals.x == 5 && Globals.y == 1)
+            {
+                bottomExit();
+            }
+            else if (Globals.x == 1 && Globals.y == 1)
             {
                 leftBottom();
             }
-            else if (y == 1 && (x == 2 || x == 4))
+            else if (Globals.y == 1 && (Globals.x == 2 || Globals.x == 4))
             {
                 bottomShopLane();
             }
-            else if (y == 1 && x == 3)
+            else if (Globals.y == 1 && Globals.x == 3)
             {
                 bottomLane();
             }
-            else if (x == 1)
+            else if (Globals.x == 1 && Globals.y == 3)
+            {
+                leftLaneInt();
+            }
+            else if (Globals.x == 1)
             {
                 leftLane();
             }
-            else if (x == 3)
+            else if (Globals.x == 3 && (Globals.y == 2 || Globals.y == 5))
+            {
+                middleLaneInt();
+            }
+            else if (Globals.x == 3)
             {
                 middleLane();
             }
-            else if ((x == 2 && (y == 5 || y == 3 || y == 2)) || (x == 4 && (y == 4 || y == 2 || y == 5)))
+            else if (Globals.x == 5)
             {
-                if (x == 2 && y == 5 && Globals.robCheck == true)
+                exitLane();
+            }
+            else if ((Globals.x == 2 && (Globals.y == 5 || Globals.y == 3 || Globals.y == 2)) || (Globals.x == 4 && (Globals.y == 4 || Globals.y == 2 || Globals.y == 5)))
+            {
+                if (Globals.x == 2 && Globals.y == 5 && Globals.robCheck == true)
                 {
                     shopLanes();
                 }
@@ -437,52 +629,53 @@ namespace Text_adventure
                 } 
                 
             } 
-            else if (x == 2 || x == 4)
+            else if (Globals.x == 2 || Globals.x == 4)
             {
                 shopLanes();
             }
-            else if (x == 6 && y == 1)
+            else if (Globals.x == 6 && Globals.y == 1)
             {
                 motherFound();
             }
-            else if (x == 6)
+            else if (Globals.x == 6)
             {
                 cashierStandEvil();
             }
-            moving(Console.ReadLine(), x, y);
+            moving(Console.ReadLine());
         }
-       static void moving(string input, float x, float y)
+       static void moving(string input)
        {
-          string special = "";
+          string special = " ";
           if (input.ToUpper() == "U")
           {
-                if (y == 6 || (x == 2 || x == 4 || x == 6))
+                if (Globals.x != 5 && (Globals.y == 6 || (Globals.x == 2 || Globals.x == 4 || Globals.x == 6)))
                 {
+                    
                     centerPrint("You can't go there!");
                     Thread.Sleep(3000);
                 }
                 else
                 {
-                    y++;
+                    Globals.y++;
                 }
           }
           else if (input.ToUpper() == "D")
           {
-                if (y == 1 || (x == 2 || x == 4 || x == 6))
+                if (Globals.y == 1 || (Globals.x == 2 || Globals.x == 4 || Globals.x == 6))
                 {
                     centerPrint("You can't go there!");
                     Thread.Sleep(3000);
                 } 
                 else
                 {
-                    y--;
+                    Globals.y--;
                 }
           }
           else if (input.ToUpper() == "L")
           {
-                if (x != 1)
+                if (Globals.x != 1)
                 {
-                    x--;
+                    Globals.x--;
                 }
                 else
                 {
@@ -492,9 +685,9 @@ namespace Text_adventure
           }
           else if (input.ToUpper() == "R")
           {
-                if (x != 6)
+                if (Globals.x != 6)
                 {
-                    x++;
+                    Globals.x++;
                 }
                 else
                 {
@@ -502,22 +695,32 @@ namespace Text_adventure
                     Thread.Sleep(3000);
                 }
           } 
-          else if (input.ToUpper() == "CHECK FOR OREOS")
+          else if (input.ToUpper() == "OREOS")
           {
-                //check for oreo space here
-                //{
-                //give specific
-                //}
+                if ((Globals.x == 5 && Globals.y == 7) || (Globals.x == 4 && Globals.y == 6)) 
+                {
+                    if (Globals.x == 5 && Globals.y == 7)
+                    {
+                        special = "oreoscrime";
+                    } else if (Globals.x == 4 && Globals.y == 6)
+                    {
+                        special = "oreosreg";
+                    }
+                }
           }
-          else if (input.ToUpper() == "RX" && x == 1 && y == 6)
+          else if (input.ToUpper() == "RX" && Globals.x == 1 && Globals.y == 6)
           {
                 special = "nurse";
           }
-          else if (input.ToUpper() == "I" && x == 2 && y == 5)
+          else if (input.ToUpper() == "I" && Globals.x == 2 && Globals.y == 5)
           {
                 special = "stranger";
           }
-          checkPlace(special, x, y);
+          else if (input.ToUpper() == "I" && Globals.x == 2 && Globals.y == 3)
+          {
+                special = "oldMan";
+          }
+            checkPlace(special);
 
        }
        
@@ -544,6 +747,31 @@ namespace Text_adventure
             Thread.Sleep(1000);
             centerPrint("Terrified, you root yourself for a bit until you feel the ability to move again.");
             Globals.robCheck = true;
+        }
+
+        static void wrinklyGuy()
+        {
+            wholeSpace();
+            centerPrint("An old man, slouched over a cane is looking around in the medicine aisle.");
+            Thread.Sleep(1000);
+            centerPrint("His hand shakes violently as he reaches for a bottle of Advil.");
+            Thread.Sleep(1000);
+            centerPrint("'Help an old geezer out, and could you get that medicine for me?' He says, with a small smile on his face.");
+            Thread.Sleep(1000);
+            centerPrint("Scared of this absolute stranger, you turn away and hope he assumes you didn't hear him.");
+            Globals.oldCheck = true;
+        }
+
+        static void leftForHome()
+        {
+            wholeSpace();
+            centerPrint("Opening the front door, you take a breath of fresh air.");
+            Thread.Sleep(1000);
+            centerPrint("You finally feel...free.");
+            Thread.Sleep(1000);
+            centerPrint("Stepping out on the street, your little legs bring you to the endless possibilities of life.");
+            Thread.Sleep(1000);
+            centerPrint("Stopping only in your tracks to wonder what that honking noise was, and why was it getting really loud?");
         }
     }
 }
