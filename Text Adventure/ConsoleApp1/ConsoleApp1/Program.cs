@@ -44,6 +44,11 @@ namespace Text_adventure
 
         }
 
+        public static class Globals
+        {
+            public static bool robCheck = false;
+        }
+
         static void centerPrint(string e)
         {
             string s = e;
@@ -375,10 +380,18 @@ namespace Text_adventure
             {
                 middleLane();
             }
-            else if (((x == 2 && (y == 5 || y == 3 || y == 2)) || (x == 4 && (y == 4 || y == 2 || y == 5))))
+            else if ((x == 2 && (y == 5 || y == 3 || y == 2)) || (x == 4 && (y == 4 || y == 2 || y == 5)))
             {
-                shopLanesInt();
-            }
+                if (x == 2 && y == 5 && Globals.robCheck == true)
+                {
+                    shopLanes();
+                }
+                else
+                {
+                    shopLanesInt();
+                } 
+                
+            } 
             else if (x == 2 || x == 4)
             {
                 shopLanes();
@@ -444,11 +457,14 @@ namespace Text_adventure
                     Thread.Sleep(3000);
                 }
             } 
+          else if (input.ToUpper() == "CHECK FOR OREOS")
+            {
+            }
           else if (input.ToUpper() == "RX" && x == 1 && y == 6)
           {
                 special = "nurse";
           }
-          else if (input.ToUpper() == "I" && x == 5 && y == 2)
+          else if (input.ToUpper() == "I" && x == 2 && y == 5)
           {
                 special = "stranger";
           }
@@ -478,6 +494,7 @@ namespace Text_adventure
             centerPrint("He turns away, but you notice him take a can of beans and slip it into his pocket.");
             Thread.Sleep(1000);
             centerPrint("Terrified, you root yourself for a bit until you feel the ability to move again.");
+            Globals.robCheck = true;
         }
     }
 }
