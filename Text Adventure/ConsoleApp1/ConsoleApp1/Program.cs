@@ -51,6 +51,7 @@ namespace Text_adventure
             public static float y = 4;
             public static int sanity = 3;
             public static bool balling = false;
+            public static string[] items = {};
         }
 
         static void centerPrint(string e)
@@ -1003,6 +1004,11 @@ namespace Text_adventure
         {
 
         }
+        static void carMan()
+        {
+            wholeSpace();
+            centerPrint("");
+        }
         static void karen()
         {
             wholeSpace();
@@ -1020,6 +1026,16 @@ namespace Text_adventure
         {
             //cashie
         }
+
+        static void snackGot(string flavor) 
+        {
+            wholeSpace();
+            centerPrint("Checking the aisle there reveals a packet of " + flavor + " Hydrox! Good luck getting Mom to say yes though.");
+            Globals.items.Append(flavor);
+            wholeSpace();
+        }
+
+
         static void leftForHome()
         {
             wholeSpace();
