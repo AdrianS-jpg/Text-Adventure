@@ -6,11 +6,10 @@ namespace Text_adventure
 
     internal class Program
     {
+        //all of the code to run the intro and the start of the game.
+
         static void Main(string[] args)
         {
-
-
-
             wholeSpace();
             centerPrint("This game is meant to be played in full screen.");
             wholeSpace();
@@ -41,20 +40,31 @@ namespace Text_adventure
             Thread.Sleep(1500);
 
             startLane();
+            centerPrint("([ # ] means you can interact with it, { P } is you, and { # } means you can't interact with it. Interact with things by typing in the corresponding letter.)");
+            Thread.Sleep(1000);
+            centerPrint("Make sure to keep your sanity level up, otherwise you'll have a breakdown in the middle of a public area!");
+            Thread.Sleep(1000);
+            centerPrint("That would be so embarrassing for all parties involved!");
+            Thread.Sleep(1000);
+            centerPrint("We must aviod this at all costs.");
             moving(Console.ReadLine());
 
 
         }
 
+        //global variables here V (enums ish)
+
         public static class Globals
         {
-            public static bool robCheck = false, oldCheck = false, catCheck = false, marCheck = false, motherNotCheck = false, boyCheck = false, robinCheck = false, VGDCheck = false, vanCheck = false, teenCheck = false;
+            public static bool robCheck = false, oldCheck = false, catCheck = false, marCheck = false, motherNotCheck = false, boyCheck = false, robinCheck = false, VGDCheck = false, vanCheck = false, teenCheck = false, karenCheck = false, batCheck = false, kratosCheck = false, jimCheck = false, fourthCheck = false;
             public static float x = 3;
             public static float y = 4;
             public static int sanity = 3;
             public static bool balling = false;
             public static string[] items = {};
         }
+
+        //function that prints the test inserted in the center of the console
 
         static void centerPrint(string e)
         {
@@ -66,6 +76,8 @@ namespace Text_adventure
             Console.SetCursorPosition(Console.WindowWidth - 1, Console.CursorTop - 1);
             Console.WriteLine("|");
         }
+
+        //function for printing whole spaces in the console
 
         static void wholeSpace()
         {
@@ -87,6 +99,7 @@ namespace Text_adventure
             }
         }
 
+        //sanity printer for every occasion
 
         static void sanitycounter()
         {
@@ -94,6 +107,8 @@ namespace Text_adventure
             centerPrint("Sanity Level: " + Globals.sanity);
             wholeSpace();
         }
+
+        //functions for graphics (you have no idea how long these took)
 
         static void startLane()
         {
@@ -117,7 +132,6 @@ namespace Text_adventure
             wholeSpace();
             sanitycounter();
         }
-
         static void middleLane()
         {
             wholeSpace();
@@ -140,7 +154,6 @@ namespace Text_adventure
             wholeSpace();
 
         }
-
         static void middleLaneInt()
         {
             wholeSpace();
@@ -162,7 +175,6 @@ namespace Text_adventure
             centerPrint("-----------------------------------                          -----------------------------------");
             wholeSpace();
         }
-
         static void topLane()
         {
             wholeSpace();
@@ -185,7 +197,6 @@ namespace Text_adventure
             wholeSpace();
 
         }
-
         static void topLeftLane()
         {
             wholeSpace();
@@ -208,7 +219,6 @@ namespace Text_adventure
             wholeSpace();
 
         }
-
         static void topShopLane()
         {
             wholeSpace();
@@ -290,7 +300,6 @@ namespace Text_adventure
             centerPrint("///////////////|                                             -----------------------------------");
             wholeSpace();
         }
-
         static void bottomLane()
         {
             wholeSpace();
@@ -309,7 +318,6 @@ namespace Text_adventure
             centerPrint("////////////////////////////////////////////////////////////////////////////////////////////////");
             wholeSpace();
         }
-
         static void bottomShopLane()
         {
             wholeSpace();
@@ -388,7 +396,6 @@ namespace Text_adventure
             centerPrint("                  ------------------------------------------------------------                  ");
             wholeSpace();
         }
-
         static void cashierStandEvil()
         {
             wholeSpace();
@@ -404,7 +411,28 @@ namespace Text_adventure
             centerPrint("                                             [ I ]                                              ");
             centerPrint("                           __________________________________________                           ");
             centerPrint("                          |******************************************|                          ");
-            centerPrint("                          |*********************************[ C ]****|                          ");
+            centerPrint("                          |*********************************{ C }****|                          ");
+            centerPrint("                          |******************************************|                          ");
+            centerPrint("                           ------------------------------------------                           ");
+            wholeSpace();
+            wholeSpace();
+        }
+        static void cashierStand()
+        {
+            wholeSpace();
+            wholeSpace();
+            centerPrint("                           __________________________________________                           ");
+            centerPrint("                          |V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^|                          ");
+            centerPrint("                          |()()()()()()()()()()()()()()()()()()()()()|                          ");
+            centerPrint("                          ||||||||||||||||||||||||||||||||||||||||||||                          ");
+            centerPrint("                           ------------------------------------------                           ");
+            centerPrint("                                                                                                ");
+            centerPrint("        [ L ]                                                                                   ");
+            centerPrint("                             { P }                                                              ");
+            centerPrint("                                                                                                ");
+            centerPrint("                           __________________________________________                           ");
+            centerPrint("                          |******************************************|                          ");
+            centerPrint("                          |*********************************{ C }****|                          ");
             centerPrint("                          |******************************************|                          ");
             centerPrint("                           ------------------------------------------                           ");
             wholeSpace();
@@ -425,7 +453,7 @@ namespace Text_adventure
             centerPrint("                                                [ I ]                                           ");
             centerPrint("                           __________________________________________                           ");
             centerPrint("                          |******************************************|                          ");
-            centerPrint("                          |*********************************[ C ]****|                          ");
+            centerPrint("                          |*********************************{ C }****|                          ");
             centerPrint("                          |******************************************|                          ");
             centerPrint("___________________________------------------------------------------___________________________");
             centerPrint("////////////////////////////////////////////////////////////////////////////////////////////////");
@@ -508,16 +536,37 @@ namespace Text_adventure
             centerPrint("                                                                                                ");
             centerPrint("         [ L ]                                                                                  ");
             centerPrint("                             { P }                                                              ");
-            centerPrint("                                              [ I ]                                             ");
+            centerPrint("                                                                                                ");
             centerPrint("                           __________________________________________                           ");
             centerPrint("                          |******************************************|                          ");
-            centerPrint("                          |*********************************[ C ]****|                          ");
+            centerPrint("                          |*********************************{ C ]****|                          ");
             centerPrint("                          |******************************************|                          ");
             centerPrint("                           ------------------------------------------                           ");
             wholeSpace();
 
         }
+        static void topCashieInt()
+        {
+            wholeSpace();
+            centerPrint("////////////////////////////////////////////////////////////////////////////////////////////////");
+            centerPrint("////////////////////////////////////////////////////////////////////////////////////////////////");
+            centerPrint("------------------------------------------------------------------------------------------------");
+            centerPrint("                          |V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^|                          ");
+            centerPrint("                          |()()()()()()()()()()()()()()()()()()()()()|                          ");
+            centerPrint("                          ||||||||||||||||||||||||||||||||||||||||||||                          ");
+            centerPrint("                           ------------------------------------------                           ");
+            centerPrint("                                                                                                ");
+            centerPrint("         [ L ]                                                                                  ");
+            centerPrint("                             { P }                                                              ");
+            centerPrint("                                              [ I ]                                             ");
+            centerPrint("                           __________________________________________                           ");
+            centerPrint("                          |******************************************|                          ");
+            centerPrint("                          |*********************************{ C }****|                          ");
+            centerPrint("                          |******************************************|                          ");
+            centerPrint("                           ------------------------------------------                           ");
+            wholeSpace();
 
+        }
         static void exiter()
         {
             wholeSpace();
@@ -581,6 +630,8 @@ namespace Text_adventure
             centerPrint("////////////////////////////////////////////////////////////////////////////////////////////////");
             wholeSpace();
         }
+
+        //code for printing which stuff at the right time
 
         static void checkPlace(string special)
         {
@@ -675,6 +726,42 @@ namespace Text_adventure
                 Thread.Sleep(1500);
                 return;
             }
+            else if (Globals.x == 6 && Globals.y == 6 && special == "karen")
+            {
+                karen();
+                Thread.Sleep(1500);
+                cashierStand();
+            }
+            else if (Globals.x == 6 && Globals.y == 5 && special == "batman")
+            {
+                batman();
+                Thread.Sleep(1500);
+                cashierStand();
+            }
+            else if (Globals.x == 6 && Globals.y == 4 && special == "kratos")
+            {
+                kratos();
+                Thread.Sleep(1500);
+                cashierStand();
+            }
+            else if (Globals.x == 6 && Globals.y == 3 && special == "jim")
+            {
+                jim();
+                Thread.Sleep(1500);
+                cashierStand();
+            }
+            else if (Globals.x == 6 && Globals.y == 2 && special == "fourthWall")
+            {
+                fourthWallBreakLol();
+                Thread.Sleep(1500);
+                cashierStand();
+            }
+            else if (Globals.x == 6 && Globals.y == 1 && special == "mother")
+            {
+                motherGot();
+                Thread.Sleep(1500);
+                return;
+            }
             else if (Globals.y == 8)
             {
                 leftForHome();
@@ -690,7 +777,14 @@ namespace Text_adventure
             }
             else if (Globals.x == 6 && Globals.y == 6)
             {
-                topCashie();
+                if (Globals.karenCheck = true)
+                {
+                    topCashie();
+                }
+                else
+                {
+                    topCashieInt();
+                }
             }
             else if (Globals.y == 6 && Globals.x == 1)
             {
@@ -773,6 +867,7 @@ namespace Text_adventure
             }
             else if (Globals.x == 6)
             {
+                if ((Globals.x == 6 && Globals.y == 5 && Globals.batCheck == true) || (Globals.x == 6 && Globals.y == 4 && Globals.kratosCheck == true) || (Globals.x == 6 && Globals.y == 3 && Globals.jimCheck == true) || (Globals.x == 6 && Globals.y == 2 && Globals.fourthCheck == true))
                 cashierStandEvil();
             }
             sanitycounter();
@@ -924,6 +1019,30 @@ namespace Text_adventure
                 {
                     special = "hole";
                 }
+                else if (Globals.x == 6 && Globals.y == 6)
+                {
+                    special = "karen";
+                }
+                else if (Globals.x == 6 && Globals.y == 5)
+                {
+                    special = "batman";
+                }
+                else if (Globals.x == 6 && Globals.y == 4)
+                {
+                    special = "kratos";
+                }
+                else if (Globals.x == 6 && Globals.y == 3)
+                {
+                    special = "jim";
+                }
+                else if (Globals.x == 6 && Globals.y == 2)
+                {
+                    special = "fourthWall";
+                }
+                else if (Globals.x == 6 && Globals.y == 1)
+                {
+                    special = "mother";
+                }
             }
 
 
@@ -945,9 +1064,8 @@ namespace Text_adventure
             centerPrint("At the words 'flu shot', your stress levels increase at the mere thought of getting a flu shot.");
             Thread.Sleep(1000);
             centerPrint("You mumble some lame excuse and move on.");
-            Globals.sanity = Globals.sanity - 1;
+            Globals.sanity--;
         }
-
         static void robber()
         {
             wholeSpace();
@@ -958,10 +1076,9 @@ namespace Text_adventure
             centerPrint("He turns away, but you notice him take a can of beans and slip it into his pocket.");
             Thread.Sleep(1000);
             centerPrint("Terrified, you root yourself for a bit until you feel the ability to move again.");
+            Globals.sanity--;
             Globals.robCheck = true;
-            Globals.sanity = Globals.sanity - 1;
         }
-
         static void wrinklyGuy()
         {
             wholeSpace();
@@ -972,10 +1089,9 @@ namespace Text_adventure
             centerPrint("'Help an old geezer out, and could you get that medicine for me?' He says, with a small smile on his face.");
             Thread.Sleep(1000);
             centerPrint("Scared of this absolute stranger, you turn away and hope he assumes you didn't hear him.");
+            Globals.sanity--;
             Globals.oldCheck = true;
-            Globals.sanity = Globals.sanity - 1;
         }
-
         static void cat()
         {
             wholeSpace();
@@ -986,10 +1102,9 @@ namespace Text_adventure
             centerPrint("The cat turns around, allowing you to pet their small body.");
             Thread.Sleep(1000);
             centerPrint("You feel strangely at peace, maybe even excited as the cat disappears through a window in the wall, leaving you only with good memories and your current predicament.");
+            Globals.sanity--;
             Globals.catCheck = true;
-            Globals.sanity = Globals.sanity + 1;
         }
-
         static void maro()
         {
             wholeSpace();
@@ -1003,7 +1118,6 @@ namespace Text_adventure
             Globals.sanity--;
             Globals.marCheck = true;
         }
-
         static void motherNot()
         {
             wholeSpace();
@@ -1014,7 +1128,7 @@ namespace Text_adventure
             centerPrint("Alas, she turns around and accepts a different child into her arms, and you realize this woman is not mother.");
             Thread.Sleep(1000);
             centerPrint("Dejected, you turn away and continue on your search.");
-            Globals.sanity = Globals.sanity - 1;
+            Globals.sanity--;
             Globals.motherNotCheck = true;
         }
         static void boy()
@@ -1027,7 +1141,7 @@ namespace Text_adventure
             centerPrint("You call out loudly and point to the dropped items.");
             Thread.Sleep(1000);
             centerPrint("He turns back, mutters a quick word of thanks to you, and dashes off, leaving you more discontented than before.");
-            Globals.sanity = Globals.sanity - 1;
+            Globals.sanity--;
             Globals.boyCheck = true;
         }
         static void robin()
@@ -1040,7 +1154,7 @@ namespace Text_adventure
             centerPrint("'Oops! Sorry kid.' He says, with an awkward smile on his face.");
             Thread.Sleep(1000);
             centerPrint("As he leaves, he glances at you then hands you a nickel with a grin before rushing around the next corner.");
-            Globals.sanity = Globals.sanity + 1;
+            Globals.sanity--;
             Globals.robinCheck = true;
         }
         static void teens()
@@ -1053,7 +1167,7 @@ namespace Text_adventure
             centerPrint("You try and pass them, but their bodies are amassed to fill the whole lane.");
             Thread.Sleep(1000);
             centerPrint("Barely managing to squeeze through, you move on with your objective.");
-            Globals.sanity = Globals.sanity + 1;
+            Globals.sanity--;
             Globals.teenCheck = true;
         }
         static void DHS()
@@ -1066,10 +1180,9 @@ namespace Text_adventure
             centerPrint("On the cover on the pamphlet is a picture of a school called 'Sno Isle Tech'");
             Thread.Sleep(1000);
             centerPrint("Flipping through the pamphlet, you only see one that piques your interest. You thank the man and walk away, thinking about what a class on Video Game Design could offer.");
+            Globals.sanity--;
             Globals.VGDCheck = true;
-            Globals.sanity = Globals.sanity - 1;
         }
-
         static void van()
         {
             wholeSpace();
@@ -1080,38 +1193,80 @@ namespace Text_adventure
             centerPrint("The candy is tempting to you, but you were taught stranger danger when you started going on trips with Mom.");
             Thread.Sleep(1000);
             centerPrint("You nervously back out of the aisle and turn the corner. You peek around the corner and the man has disappeared.");
-            Globals.sanity = Globals.sanity - 1;
+            Globals.sanity--;
             Globals.vanCheck = true;
         }
 
-        static void hole()
-        {
-            wholeSpace();
-            centerPrint("Walking down the path, you feel a cool breeze when you walk past that section of wall.");
-            Thread.Sleep(1000);
-            centerPrint("Turning your head 90 degrees, you locate a section of the wall with nothing there.");
-            Thread.Sleep(1000);
-            centerPrint("Spotting this as an opportunity, you dash through the hole in the wall and out to the street.");
-            Thread.Sleep(5000);
-            centerPrint("Now what?");
-        }
+        //cashier lane responses
+
         static void karen()
         {
             wholeSpace();
-            //cashie
+            centerPrint("A woman, all red in the face and shaking her fists is yelling at the cashier on the stand");
+            Thread.Sleep(1000);
+            centerPrint("The cashier, a bored teenager, is unperturbed at this sudden assault.");
+            Thread.Sleep(1000);
+            centerPrint("Realizing at this point that this is not mother, you turn around and leave.");
+            Thread.Sleep(1000);
+            centerPrint("Walking out of the lane, you hear her say 'I want to speak to the manager!'");
+            Globals.sanity--;
+            Globals.karenCheck = true;
         }
         static void batman()
         {
-            //cashie
+            wholeSpace();
+            centerPrint("A brooding man what seems to be a bat comstume stands in the middle of the lane, waiting for something.");
+            Thread.Sleep(1000);
+            centerPrint("The cashier looks surprised for some reason, almost as if he had met a celebrity.");
+            Thread.Sleep(1000);
+            centerPrint("No, that's not awe. That cashier feels...fear.");
+            Thread.Sleep(1000);
+            centerPrint("Scared of what the cashier's scared of, you leave quickly.");
+            Globals.sanity--;
+            Globals.batCheck = true;
         }
         static void kratos()
         {
-            //cashis
+            wholeSpace();
+            centerPrint("Towering over you as soon as you enter the lane is a large, bald, bearded man in armor.");
+            Thread.Sleep(1000);
+            centerPrint("He does a once over of your body, and seems to deem you fine and looks away.");
+            Thread.Sleep(1000);
+            centerPrint("You shy away a little, terrified of the large man and his axe on his back.");
+            Thread.Sleep(1000);
+            centerPrint("As you leave, you hear something akin to 'Boy?' being said behind you.");
+            Globals.sanity--;
+            Globals.kratosCheck = true;
         }
-        static void terryBogard()
+        static void jim()
         {
-            //cashie
+            wholeSpace();
+            centerPrint("There stands a man next the to cashier desk, chatting with the person behind it.");
+            Thread.Sleep(1000);
+            centerPrint("You hear the terms 'hell' and 'sacrifice get thrown around very easily in their conversation.'");
+            Thread.Sleep(1000);
+            centerPrint("Scared of those words (you don't understand them), you attempt to leave without provoking a conversation.");
+            Thread.Sleep(1000);
+            centerPrint("Right before you are able to clear their field of vision, you get a chill in your spine, as if they saw you leave and said nothing about it.");
+            Thread.Sleep(1000);
+            Globals.sanity--;
+            Globals.jimCheck = true;
         }
+        static void fourthWallBreakLol() 
+        {
+            wholeSpace();
+            centerPrint("A tired-looking woman glimpses at you as she places a coupld of groceries on the conveyor belt.");
+            Thread.Sleep(1000);
+            centerPrint("She stares off into the distance, seemingly in her own thoughts. You can faintly hear a mumbling sound coming from her.");
+            Thread.Sleep(1000);
+            centerPrint("You focus in enough in time to hear her say '..darn you, kid.' to some point in space. You hear the cashier hum 'Glimpse of Us'.");
+            Thread.Sleep(1000);
+            centerPrint("You turn around to leave her alone, but right before you leave, you see that the woman and cashier have disappeared behind you.");
+            Globals.sanity--;
+            Globals.fourthCheck = true;
+        }
+       
+        //bonus stuff right here V (wip)
 
         static void snackGot(string flavor) 
         {
@@ -1121,7 +1276,19 @@ namespace Text_adventure
             wholeSpace();
         }
 
+        //possible endings
 
+        static void hole()
+        {
+            wholeSpace();
+            centerPrint("Walking down the path, you feel a cool breeze when you walk past that section of wall.");
+            Thread.Sleep(1000);
+            centerPrint("Turning your head 90 degrees, you locate a section of the wall with nothing there.");
+            Thread.Sleep(1000);
+            centerPrint("Spotting this as an opportunity, you dash through the hole in the wall and out to the street.");
+            Thread.Sleep(4000);
+            centerPrint("Now what?");
+        }
         static void leftForHome()
         {
             wholeSpace();
@@ -1144,6 +1311,19 @@ namespace Text_adventure
             Thread.Sleep(1000);
             centerPrint("Out of the tears pouring down your eyes, you can barely make out a distinct mother-like shape rushing towards you. You're safe now.");
         }
+        static void motherGot()
+        {
+            wholeSpace();
+            centerPrint("You turn the corner to see a very familiar back.");
+            Thread.Sleep(1000);
+            centerPrint("Hope rises in your chest as you rush towards her, and you feel the need to scream out 'MOMMY!'");
+            Thread.Sleep(1000);
+            centerPrint("You finally feel safe again.");
+            Thread.Sleep(1000);
+            centerPrint("Everything is alright with the world again.");
+        }
+
+        //silly ending hehe
 
         static void theTruth()
         {
