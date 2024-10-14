@@ -49,7 +49,24 @@ namespace Text_adventure
             centerPrint("We must aviod this at all costs.");
             moving(Console.ReadLine());
 
-
+ 
+            if (Globals.items.Length > 0)
+            {
+                string bonus = "";
+                for (int i = 0; i < Globals.items.Length; i++)
+                {
+                    bonus = bonus + Globals.items[i];
+                    if (i - 1 == Globals.items.Length)
+                    {
+                        bonus = bonus + "flavor!";
+                    }
+                    else
+                    {
+                        bonus = bonus + "flavor, ";
+                    }
+                }
+                centerPrint("(You've eneded up with" + bonus + ")");
+            }
         }
 
         //global variables here V (enums ish)
@@ -637,130 +654,187 @@ namespace Text_adventure
         {
             Console.Clear();
 
-            if (Globals.y == 6 && Globals.x == 1 && special == "nurse")
+            if (special == "nurse")
             {
                 nurse();
                 Thread.Sleep(1500);
                 topLeftLane();
             }
-            else if (Globals.x == 4 && Globals.y == 5 && special == "stranger")
+            else if (special == "stranger")
             {
                 robber();
                 Thread.Sleep(1500);
                 shopLanes();
             }
-            else if (Globals.x == 5 && Globals.y == 7 && special == "hydroxcrime")
+            else if (special == "hydroxcrime")
             {
                 centerPrint("something has opened");
                 Thread.Sleep(1500);
                 exitDemon();
                 Globals.balling = true;
             }
-            else if (Globals.x == 7 && Globals.y == 7 && special == "run")
+            else if (special == "run")
             {
                 theTruth();
                 return;
             }
-            else if (Globals.x == 7 && Globals.y == 7 && special == "man")
+            else if (special == "man")
             {
                 secret();
             }
 
-            else if (Globals.x == 2 && Globals.y == 3 && special == "oldMan")
+            else if (special == "oldMan")
             {
                 wrinklyGuy();
                 Thread.Sleep(1500);
                 shopLanes();
             }
-            else if (Globals.x == 2 && Globals.y == 2 && special == "cat")
+            else if (special == "cat")
             {
                 cat();
                 Thread.Sleep(1500);
                 shopLanes();
             }
-            else if (Globals.x == 2 && Globals.y == 1 && special == "maro")
+            else if (special == "maro")
             {
                 maro();
                 Thread.Sleep(1500);
                 bottomShopLane();
             }
-            else if (Globals.x == 3 && Globals.y == 5 && special == "motherNot")
+            else if (special == "motherNot")
             {
                 motherNot();
                 Thread.Sleep(1500);
                 middleLane();
             }
-            else if (Globals.x == 3 && Globals.y == 2 && special == "boy")
+            else if (special == "boy")
             {
                 boy();
                 Thread.Sleep(1500);
                 middleLane();
             }
-            else if (Globals.x == 2 && Globals.y == 5 && special == "robin")
+            else if (special == "robin")
             {
                 robin();
                 Thread.Sleep(1500);
                 shopLanes();
             }
-            else if (Globals.x == 4 && Globals.y == 4 && special == "VGD")
+            else if (special == "VGD")
             {
                 DHS();
                 Thread.Sleep(1500);
                 shopLanes();
             }
-            else if (Globals.x == 4 && Globals.y == 2 && special == "van")
+            else if (special == "van")
             {
                 van();
                 Thread.Sleep(1500);
                 shopLanes();
             }
-            else if (Globals.x == 4 && Globals.y == 1 && special == "teens")
+            else if (special == "teens")
             {
                 teens();
                 Thread.Sleep(1500);
                 bottomShopLane();
             }
-            else if (Globals.x == 1 && Globals.y == 3 && special == "hole")
+            else if (special == "hole")
             {
                 hole();
                 Thread.Sleep(1500);
                 return;
             }
-            else if (Globals.x == 6 && Globals.y == 6 && special == "karen")
+            else if (special == "karen")
             {
                 karen();
                 Thread.Sleep(1500);
                 cashierStand();
             }
-            else if (Globals.x == 6 && Globals.y == 5 && special == "batman")
+            else if (special == "batman")
             {
                 batman();
                 Thread.Sleep(1500);
                 cashierStand();
             }
-            else if (Globals.x == 6 && Globals.y == 4 && special == "kratos")
+            else if (special == "kratos")
             {
                 kratos();
                 Thread.Sleep(1500);
                 cashierStand();
             }
-            else if (Globals.x == 6 && Globals.y == 3 && special == "jim")
+            else if (special == "jim")
             {
                 jim();
                 Thread.Sleep(1500);
                 cashierStand();
             }
-            else if (Globals.x == 6 && Globals.y == 2 && special == "fourthWall")
+            else if (special == "fourthWall")
             {
                 fourthWallBreakLol();
                 Thread.Sleep(1500);
                 cashierStand();
             }
-            else if (Globals.x == 6 && Globals.y == 1 && special == "mother")
+            else if (special == "mother")
             {
                 motherGot();
                 Thread.Sleep(1500);
                 return;
+            }
+            else if (special == "hydroxReg")
+            {
+                snackGot("");
+                Thread.Sleep(1500);
+                topLane();
+            }
+            else if (special == "hydroxDoubleStuf")
+            {
+                snackGot("Double Stuffed");
+                Thread.Sleep(1500);
+                if (Globals.catCheck == true)
+                {
+                    shopLanes();
+                } else
+                {
+                    shopLanesInt();
+                }
+            }
+            else if (special == "hydroxLemon")
+            {
+                snackGot("Lemon flavored");
+                Thread.Sleep(1500);
+                shopLanes();
+            }
+            else if (special == "hydroxMint")
+            {
+                snackGot("Mint flavored");
+                Thread.Sleep(1500);
+                if (Globals.robinCheck == true)
+                {
+                    shopLanes();
+                }
+                else
+                {
+                    shopLanesInt();
+                }
+            }
+            else if (special == "hydroxPeanutButter")
+            {
+                snackGot("Peanut Butter flavored");
+                Thread.Sleep(1500);
+                middleLane();
+            }
+            else if (special == "hydroxThins")
+            {
+                snackGot("Thin");
+                Thread.Sleep(1500);
+                Thread.Sleep(1500);
+                if (Globals.batCheck == true)
+                {
+                    cashierStandEvil();
+                }
+                else
+                {
+                    cashierStand();
+                }
             }
             else if (Globals.y == 8)
             {
@@ -962,6 +1036,26 @@ namespace Text_adventure
                     else if (Globals.x == 4 && Globals.y == 6)
                     {
                         special = "hydroxReg";
+                    }
+                    else if (Globals.x == 2 && Globals.y == 2)
+                    {
+                        special = "hydroxDoubleStuf";
+                    }
+                    else if (Globals.x == 4 && Globals.y == 3)
+                    {
+                        special = "hydroxLemon";
+                    }
+                    else if (Globals.x == 2 && Globals.y == 5)
+                    {
+                        special = "hydroxMint";
+                    }
+                    else if (Globals.x == 3 && Globals.y == 3)
+                    {
+                        special = "hydroxPeanutButter";
+                    }
+                    else if (Globals.x == 6 && Globals.y == 5)
+                    {
+                        special = "hydroxThins";
                     }
                 }
             }
@@ -1272,7 +1366,14 @@ namespace Text_adventure
         {
             wholeSpace();
             centerPrint("Checking the aisle there reveals a packet of " + flavor + " Hydrox! Good luck getting Mom to say yes to buying it though.");
-            Globals.items.Append(flavor);
+
+            if (flavor == "") 
+            {
+                Globals.items.Append("regular");
+            } else
+            {
+                Globals.items.Append(flavor);
+            }
             wholeSpace();
         }
 
