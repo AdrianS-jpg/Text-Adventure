@@ -10,6 +10,7 @@ namespace Text_adventure
 
         static void Main(string[] args)
         {
+            
             wholeSpace();
             centerPrint("This game is meant to be played in full screen.");
             wholeSpace();
@@ -46,26 +47,33 @@ namespace Text_adventure
             Thread.Sleep(1000);
             centerPrint("That would be so embarrassing for all parties involved!");
             Thread.Sleep(1000);
-            centerPrint("We must aviod this at all costs.");
+            centerPrint("We must avoid this at all costs.");
+
             moving(Console.ReadLine());
 
- 
-            if (Globals.items.Length > 0)
+            if (Globals.items.Count > 0)
             {
                 string bonus = "";
-                for (int i = 0; i < Globals.items.Length; i++)
+                if (Globals.items.Count == 1)
                 {
-                    bonus = bonus + Globals.items[i];
-                    if (i - 1 == Globals.items.Length)
+                    bonus = bonus + Globals.items[0] + " flavor Hydrox!";
+                }
+                else
+                {
+                    for (int i = 0; i < Globals.items.Count; i++)
                     {
-                        bonus = bonus + "flavor!";
-                    }
-                    else
-                    {
-                        bonus = bonus + "flavor, ";
+
+                        if ((i + 1) == Globals.items.Count)
+                        {
+                            bonus = bonus + "and " + Globals.items[i] + " flavor hydrox!";
+                        }
+                        else
+                        {
+                            bonus = bonus + Globals.items[i] + " flavor hydrox, ";
+                        }
                     }
                 }
-                centerPrint("(You've eneded up with" + bonus + ")");
+                centerPrint("(You've ended up with " + bonus + ")");
             }
         }
 
@@ -78,7 +86,7 @@ namespace Text_adventure
             public static float y = 4;
             public static int sanity = 3;
             public static bool balling = false;
-            public static string[] items = {};
+            public static List<string> items = new List<string>();
         }
 
         //function that prints the test inserted in the center of the console
@@ -781,7 +789,7 @@ namespace Text_adventure
             }
             else if (special == "hydroxReg")
             {
-                snackGot("");
+                snackGot("Regular");
                 Thread.Sleep(1500);
                 topLane();
             }
@@ -1369,10 +1377,10 @@ namespace Text_adventure
 
             if (flavor == "") 
             {
-                Globals.items.Append("regular");
+                Globals.items.Add("regular");
             } else
             {
-                Globals.items.Append(flavor);
+                Globals.items.Add(flavor);
             }
             wholeSpace();
         }
