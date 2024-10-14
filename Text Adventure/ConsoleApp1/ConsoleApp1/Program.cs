@@ -10,9 +10,30 @@ namespace Text_adventure
 
         static void Main(string[] args)
         {
-            
+            centerPrint("Hey, kid. What's your name?");
+            string playerName = Console.ReadLine();
+            if (playerName.ToUpper() == "DEREK")
+            {
+                Thread.Sleep(1000);
+                centerPrint("I'm so sorry.");
+                Globals.colorblindmode = true;
+            } //else if (playerName.ToUpper() == "horror")
+            //{
+
+            //}
+            Thread.Sleep(1000);
+            Console.Clear();
             wholeSpace();
             centerPrint("This game is meant to be played in full screen.");
+            wholeSpace();
+            Thread.Sleep(3000);
+            while (Console.WindowWidth < 150) 
+            {
+                centerPrint("This game is meant to be played in full screen.");
+                wholeSpace();
+                Thread.Sleep(3000);
+            }
+            start();
             wholeSpace();
             Thread.Sleep(2000);
             centerPrint("Start?");
@@ -35,13 +56,14 @@ namespace Text_adventure
             Thread.Sleep(1500);
             centerPrint("Alas, your underdeveloped body does not allow the kind of height needed to obtain the sandwich cookies.");
             Thread.Sleep(1500);
-            centerPrint("You turn around to request assistance from the one that feeds you, the woman who has birthed you.");
+            centerPrint("You turn around to request assistance from the one that feeds you, the woman whomst has birthed you.");
             Thread.Sleep(2000);
             centerPrint("She's gone.");
             Thread.Sleep(1500);
-
             startLane();
-            centerPrint("([ # ] means you can interact with it, { P } is you, and { # } means you can't interact with it. Interact with things by typing in the corresponding letter.)");
+            Thread.Sleep(500);
+            centerPrint("[ # ] means you can interact with it, { P } is you, and { # } means you can't interact with it.");
+            centerPrint("Interact with things by typing in the corresponding letter.");
             Thread.Sleep(1000);
             centerPrint("Make sure to keep your sanity level up, otherwise you'll have a breakdown in the middle of a public area!");
             Thread.Sleep(1000);
@@ -50,6 +72,8 @@ namespace Text_adventure
             centerPrint("We must avoid this at all costs.");
 
             moving(Console.ReadLine());
+
+            //end code for hydrox presenting
 
             if (Globals.items.Count > 0)
             {
@@ -87,12 +111,30 @@ namespace Text_adventure
             public static int sanity = 3;
             public static bool balling = false;
             public static List<string> items = new List<string>();
+            public static bool colorblindmode = false;
+            public static bool color = false;
         }
 
         //function that prints the test inserted in the center of the console
 
         static void centerPrint(string e)
         {
+            if (Globals.colorblindmode == true)
+            {
+                if (Globals.color == false)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Globals.color = true;
+
+                } else
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.BackgroundColor = ConsoleColor.Magenta;
+                    Globals.color = false;
+
+                }
+            }
             string s = e;
             Console.SetCursorPosition(0, Console.CursorTop);
             Console.WriteLine("|");
@@ -100,12 +142,30 @@ namespace Text_adventure
             Console.WriteLine(s);
             Console.SetCursorPosition(Console.WindowWidth - 1, Console.CursorTop - 1);
             Console.WriteLine("|");
+
         }
 
         //function for printing whole spaces in the console
 
         static void wholeSpace()
         {
+            if (Globals.colorblindmode == true)
+            {
+                if (Globals.color == false)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Globals.color = true;
+
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.BackgroundColor = ConsoleColor.Magenta;
+                    Globals.color = false;
+
+                }
+            }
             for (int i = 0; i < Console.WindowWidth; i++)
             {
                 if (i == Console.WindowWidth - 1)
@@ -131,10 +191,20 @@ namespace Text_adventure
             wholeSpace();
             centerPrint("Sanity Level: " + Globals.sanity);
             wholeSpace();
+            Globals.color = false;
         }
 
         //functions for graphics (you have no idea how long these took)
 
+        static void start()
+        {
+            centerPrint("████████╗██╗░░██╗███████╗  ░██████╗███████╗░█████╗░██████╗░░█████╗░██╗░░██╗");
+            centerPrint("╚══██╔══╝██║░░██║██╔════╝  ██╔════╝██╔════╝██╔══██╗██╔══██╗██╔══██╗██║░░██║");
+            centerPrint("░░░██║░░░███████║█████╗░░  ╚█████╗░█████╗░░███████║██████╔╝██║░░╚═╝███████║");
+            centerPrint("░░░██║░░░██╔══██║██╔══╝░░  ░╚═══██╗██╔══╝░░██╔══██║██╔══██╗██║░░██╗██╔══██║");
+            centerPrint("░░░██║░░░██║░░██║███████╗  ██████╔╝███████╗██║░░██║██║░░██║╚█████╔╝██║░░██║");
+            centerPrint("░░░╚═╝░░░╚═╝░░╚═╝╚══════╝  ╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝");
+        }
         static void startLane()
         {
             wholeSpace();
@@ -797,10 +867,11 @@ namespace Text_adventure
             {
                 snackGot("Double Stuffed");
                 Thread.Sleep(1500);
-                if (Globals.catCheck == true)
+                if (Globals.oldCheck == true)
                 {
                     shopLanes();
-                } else
+                }
+                else
                 {
                     shopLanesInt();
                 }
@@ -859,7 +930,7 @@ namespace Text_adventure
             }
             else if (Globals.x == 6 && Globals.y == 6)
             {
-                if (Globals.karenCheck = true)
+                if (Globals.karenCheck == true)
                 {
                     topCashie();
                 }
@@ -890,9 +961,11 @@ namespace Text_adventure
             }
             else if (Globals.y == 1 && (Globals.x == 2 || Globals.x == 4))
             {
-                if ((Globals.x == 2 && Globals.y == 1 && Globals.marCheck == true) || (Globals.x == 4 && Globals.y == 1 && Globals.teenCheck == true)) {
+                if ((Globals.x == 2 && Globals.y == 1 && Globals.marCheck == true) || (Globals.x == 4 && Globals.y == 1 && Globals.teenCheck == true))
+                {
                     bottomShopLane();
-                } else
+                }
+                else
                 {
                     bottomShopLaneInt();
                 }
@@ -914,7 +987,8 @@ namespace Text_adventure
                 if ((Globals.x == 3 && Globals.y == 5 && Globals.motherNotCheck == true) || (Globals.x == 3 && Globals.y == 2 && Globals.boyCheck == true))
                 {
                     middleLane();
-                } else
+                }
+                else
                 {
                     middleLaneInt();
                 }
@@ -949,8 +1023,14 @@ namespace Text_adventure
             }
             else if (Globals.x == 6)
             {
-                if ((Globals.x == 6 && Globals.y == 5 && Globals.batCheck == true) || (Globals.x == 6 && Globals.y == 4 && Globals.kratosCheck == true) || (Globals.x == 6 && Globals.y == 3 && Globals.jimCheck == true) || (Globals.x == 6 && Globals.y == 2 && Globals.fourthCheck == true))
-                cashierStandEvil();
+                if ((Globals.x == 6 && Globals.y == 5 && Globals.batCheck == true) || (Globals.x == 6 && Globals.y == 4 && Globals.kratosCheck == true) || (Globals.x == 6 && Globals.y == 3 && Globals.jimCheck == true) || (Globals.x == 6 && Globals.y == 2 && Globals.fourthCheck == true)) 
+                {
+                    cashierStand();
+                } else
+                {
+                    cashierStandEvil();
+                }
+
             }
             sanitycounter();
             if (Globals.sanity == 0)
@@ -1035,37 +1115,34 @@ namespace Text_adventure
             }
             else if (input.ToUpper() == "SNACK")
             {
-                if ((Globals.x == 5 && Globals.y == 7) || (Globals.x == 4 && Globals.y == 6))
-                {
                     if (Globals.x == 5 && Globals.y == 7)
                     {
                         special = "hydroxcrime";
                     }
-                    else if (Globals.x == 4 && Globals.y == 6)
+                    else if (Globals.x == 4 && Globals.y == 6 && Globals.items.Contains("Regular") == false)
                     {
                         special = "hydroxReg";
                     }
-                    else if (Globals.x == 2 && Globals.y == 2)
+                    else if (Globals.x == 2 && Globals.y == 3 && Globals.items.Contains("Double Stuffed") == false)
                     {
                         special = "hydroxDoubleStuf";
                     }
-                    else if (Globals.x == 4 && Globals.y == 3)
+                    else if (Globals.x == 4 && Globals.y == 3 && Globals.items.Contains("Lemon flavored") == false)
                     {
                         special = "hydroxLemon";
                     }
-                    else if (Globals.x == 2 && Globals.y == 5)
+                    else if (Globals.x == 2 && Globals.y == 5 && Globals.items.Contains("Mint flavored") == false)
                     {
                         special = "hydroxMint";
                     }
-                    else if (Globals.x == 3 && Globals.y == 3)
+                    else if (Globals.x == 3 && Globals.y == 3 && Globals.items.Contains("Peanut Butter flavored") == false)
                     {
                         special = "hydroxPeanutButter";
                     }
-                    else if (Globals.x == 6 && Globals.y == 5)
+                    else if (Globals.x == 6 && Globals.y == 5 && Globals.items.Contains("Thin") == false)
                     {
                         special = "hydroxThins";
                     }
-                }
             }
             else if (input.ToUpper() == "RX" && Globals.x == 1 && Globals.y == 6)
             {
@@ -1073,19 +1150,19 @@ namespace Text_adventure
             }
             else if (input.ToUpper() == "I")
             {
-                if (Globals.x == 4 && Globals.y == 5)
+                if (Globals.x == 4 && Globals.y == 5 && Globals.robCheck == false)
                 {
                     special = "stranger";
                 }
-                else if (Globals.x == 2 && Globals.y == 3)
+                else if (Globals.x == 2 && Globals.y == 3 && Globals.oldCheck == false)
                 {
                     special = "oldMan";
                 }
-                else if (Globals.x == 2 && Globals.y == 2)
+                else if (Globals.x == 2 && Globals.y == 2 && Globals.catCheck == false)
                 {
                     special = "cat";
                 }
-                else if (Globals.x == 2 && Globals.y == 1)
+                else if (Globals.x == 2 && Globals.y == 1 && Globals.marCheck == false)
                 {
                     special = "maro";
                 }
@@ -1093,27 +1170,27 @@ namespace Text_adventure
                 {
                     special = "run";
                 }
-                else if (Globals.x == 3 && Globals.y == 5)
+                else if (Globals.x == 3 && Globals.y == 5 && Globals.motherNotCheck == false)
                 {
                     special = "motherNot";
                 }
-                else if (Globals.x == 3 && Globals.y == 2)
+                else if (Globals.x == 3 && Globals.y == 2 && Globals.boyCheck == false)
                 {
                     special = "boy";
                 }
-                else if (Globals.x == 2 && Globals.y == 5)
+                else if (Globals.x == 2 && Globals.y == 5 && Globals.robinCheck == false)
                 {
                     special = "robin";
                 }
-                else if (Globals.x == 4 && Globals.y == 4)
+                else if (Globals.x == 4 && Globals.y == 4 && Globals.VGDCheck == false)
                 {
                     special = "VGD";
                 }
-                else if (Globals.x == 4 && Globals.y == 2)
+                else if (Globals.x == 4 && Globals.y == 2 && Globals.vanCheck == false)
                 {
                     special = "van";
                 }
-                else if (Globals.x == 4 && Globals.y == 1)
+                else if (Globals.x == 4 && Globals.y == 1 && Globals.teenCheck == false)
                 {
                     special = "teens";
                 }
@@ -1121,23 +1198,23 @@ namespace Text_adventure
                 {
                     special = "hole";
                 }
-                else if (Globals.x == 6 && Globals.y == 6)
+                else if (Globals.x == 6 && Globals.y == 6 && Globals.karenCheck == false)
                 {
                     special = "karen";
                 }
-                else if (Globals.x == 6 && Globals.y == 5)
+                else if (Globals.x == 6 && Globals.y == 5 && Globals.batCheck == false)
                 {
                     special = "batman";
                 }
-                else if (Globals.x == 6 && Globals.y == 4)
+                else if (Globals.x == 6 && Globals.y == 4 && Globals.kratosCheck == false)
                 {
                     special = "kratos";
                 }
-                else if (Globals.x == 6 && Globals.y == 3)
+                else if (Globals.x == 6 && Globals.y == 3 && Globals.jimCheck == false)
                 {
                     special = "jim";
                 }
-                else if (Globals.x == 6 && Globals.y == 2)
+                else if (Globals.x == 6 && Globals.y == 2 && Globals.fourthCheck == false)
                 {
                     special = "fourthWall";
                 }
@@ -1188,10 +1265,9 @@ namespace Text_adventure
             Thread.Sleep(1000);
             centerPrint("His hand shakes violently as he reaches for a bottle of Advil.");
             Thread.Sleep(1000);
-            centerPrint("'Help an old geezer out, and could you get that medicine for me?' He says, with a small smile on his face.");
+            centerPrint("'Hey, did you know that you can grab items from the shelves?' He says as he turns to you.");
             Thread.Sleep(1000);
-            centerPrint("Scared of this absolute stranger, you turn away and hope he assumes you didn't hear him.");
-            Globals.sanity--;
+            centerPrint("'Considering that you're looking for some Hydrox there, try inputting 'snack' to search for it!'");
             Globals.oldCheck = true;
         }
         static void cat()
@@ -1203,8 +1279,8 @@ namespace Text_adventure
             Thread.Sleep(1000);
             centerPrint("The cat turns around, allowing you to pet their small body.");
             Thread.Sleep(1000);
-            centerPrint("You feel strangely at peace, maybe even excited as the cat disappears through a window in the wall, leaving you only with good memories and your current predicament.");
-            Globals.sanity--;
+            centerPrint("You feel strangely at peace, maybe even excited as the cat disappears through a window in the wall.");
+            Globals.sanity++;
             Globals.catCheck = true;
         }
         static void maro()
@@ -1217,7 +1293,7 @@ namespace Text_adventure
             centerPrint("'Its'a me, Maro!' You hear him mutter before he leaves out of earshot.'");
             Thread.Sleep(1000);
             centerPrint("You look back, temporarily confused until refocusing on your goal.");
-            Globals.sanity--;
+            Globals.sanity++;
             Globals.marCheck = true;
         }
         static void motherNot()
@@ -1256,7 +1332,7 @@ namespace Text_adventure
             centerPrint("'Oops! Sorry kid.' He says, with an awkward smile on his face.");
             Thread.Sleep(1000);
             centerPrint("As he leaves, he glances at you then hands you a nickel with a grin before rushing around the next corner.");
-            Globals.sanity--;
+            Globals.sanity++;
             Globals.robinCheck = true;
         }
         static void teens()
@@ -1277,11 +1353,11 @@ namespace Text_adventure
             wholeSpace();
             centerPrint("'Hey kid, do you like to play video games?' You hear from down the hall.");
             Thread.Sleep(1000);
-            centerPrint("A man stands at the end of the aisle. He walks over and hands you a flyer for a school program. 'You think you'd be interested in this?'");
+            centerPrint("A man stands at the end of the aisle. He walks over and hands you a flyer for a school program. 'You think you'd be interested in this?'.");
             Thread.Sleep(1000);
-            centerPrint("On the cover on the pamphlet is a picture of a school called 'Sno Isle Tech'");
+            centerPrint("On the cover on the pamphlet is a picture of a school called 'Sno Isle Tech'.");
             Thread.Sleep(1000);
-            centerPrint("Flipping through the pamphlet, you only see one that piques your interest. You thank the man and walk away, thinking about what a class on Video Game Design could offer.");
+            centerPrint("Flipping through the pamphlet, you only see one that piques your interest. You walk away, wondering what a class on Video Game Design could offer.");
             Globals.sanity--;
             Globals.VGDCheck = true;
         }
@@ -1374,14 +1450,7 @@ namespace Text_adventure
         {
             wholeSpace();
             centerPrint("Checking the aisle there reveals a packet of " + flavor + " Hydrox! Good luck getting Mom to say yes to buying it though.");
-
-            if (flavor == "") 
-            {
-                Globals.items.Add("regular");
-            } else
-            {
-                Globals.items.Add(flavor);
-            }
+            Globals.items.Add(flavor);
             wholeSpace();
         }
 
@@ -1416,7 +1485,7 @@ namespace Text_adventure
             Thread.Sleep(1000);
             centerPrint("You feel the mix of emotions you've been trying to hold in, a blend of fear, unsureness, and terror reach your brain");
             Thread.Sleep(1000);
-            centerPrint("Feeling the urge to let it out, you break down loudly, screaming and yelling for your mother to return to you.");
+            centerPrint("Feeling the urge to let it all out, you break down loudly, screaming and yelling for your mother to return to you.");
             Thread.Sleep(1000);
             centerPrint("Out of the tears pouring down your eyes, you can barely make out a distinct mother-like shape rushing towards you. You're safe now.");
         }
